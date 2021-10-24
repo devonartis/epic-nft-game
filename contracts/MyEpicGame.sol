@@ -16,7 +16,6 @@ import "hardhat/console.sol";
 
 // Our contract inherits from ERC721, which is the standard NFT contract!
 contract MyEpicGame is ERC721 {
-
   struct CharacterAttributes {
     uint characterIndex;
     string name;
@@ -47,7 +46,7 @@ contract MyEpicGame is ERC721 {
   uint attackDamage;
 }
 
-BigBoss public bigBoss;
+  BigBoss public bigBoss;
 
 
 
@@ -57,6 +56,10 @@ BigBoss public bigBoss;
   // to store the owner of the NFT and reference it later.
   mapping(address => uint256) public nftHolders;
 
+
+  event CharacterNFTMinted(address sender, uint256 tokenId, uint256 characterIndex);
+  event AttackComplete(uint newBossHp, uint newPlayerHp);
+  
   constructor(
     string[] memory characterNames,
     string[] memory characterImageURIs,
@@ -96,6 +99,8 @@ BigBoss public bigBoss;
       CharacterAttributes memory c = defaultCharacters[i];
       console.log("Done initializing %s w/ HP %s, img %s", c.name, c.hp, c.imageURI);
     }
+
+
 
     // I increment tokenIds here so that my first NFT has an ID of 1.
     // More on this in the lesson!
@@ -161,6 +166,9 @@ BigBoss public bigBoss;
     _tokenIds.increment();
   }
 
+  emit CharacterNFTMinted(msg.sender, newItemId, _characterIndex);
+
+
   function attackBoss() public  {
     // Get the state of the player's NFT.
     // Make sure the player has more than 0 HP.
@@ -202,6 +210,32 @@ BigBoss public bigBoss;
   
 
 }
+
+emit AttackComplete(bigBoss.hp, player.hp);
+
+function checkIfUserHasNFT() public view returns (CharacterAttributes memory) {
+  // Get the tokenId of the user's character NFT
+  uint256 userNftTokenId = nftHolders[msg.sender];
+  // If the user has a tokenId in the map, return thier character.
+  if (userNftTokenId > 0) {
+    return nftHolderAttributes[userNftTokenId];
+  }
+  // Else, return an empty character.
+  else {
+    CharacterAttributes memory emptyStruct;
+    return emptyStruct;
+   }
+}
+
+function getAllDefaultCharacters() public view returns (CharacterAttributes[] memory) {
+  return defaultCharacters;
+}
+
+function getBigBoss() public view returns (BigBoss memory) {
+  return bigBoss;
+}
+
+
 
 
     
