@@ -12,3 +12,7 @@ https://forum.openzeppelin.com/t/cannot-estimate-gas-transaction-may-fail-or-may
 
 ## Sec2 - Boss Build
 
+Interactive  NFT has been launched and tested ...
+
+https://testnets.opensea.io/assets/0x1b0423e631ce74b3851e52014f7556063cce3c55/3
+

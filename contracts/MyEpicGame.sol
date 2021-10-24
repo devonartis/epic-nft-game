@@ -185,6 +185,20 @@ BigBoss public bigBoss;
     "Error: boss must have HP to attack boss."
   );
 
+  if (bigBoss.hp < player.attackDamage) {
+    bigBoss.hp = 0;
+  } else {
+    bigBoss.hp = bigBoss.hp - player.attackDamage;
+  }
+  
+  // Allow boss to attack player.
+  if (player.hp < bigBoss.attackDamage) {
+    player.hp = 0;
+  } else {
+    player.hp = player.hp - bigBoss.attackDamage;
+  }
+  console.log("Boss attacked player. New player hp: %s\n", player.hp);
+
   
 
 }
