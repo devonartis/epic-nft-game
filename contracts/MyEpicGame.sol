@@ -81,6 +81,8 @@ BigBoss public bigBoss;
     attackDamage: bossAttackDamage
   });
 
+  
+
   console.log("Done initializing boss %s w/ HP %s, img %s", bigBoss.name, bigBoss.hp, bigBoss.imageURI);
 
   
