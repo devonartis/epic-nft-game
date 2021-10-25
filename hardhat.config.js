@@ -5,8 +5,6 @@ module.exports = {
   networks: {
     rinkeby: {
       url: 'https://eth-rinkeby.alchemyapi.io/v2/gV28fxySYbxNunGBwEeVn7EuRKzrvsOX',
-      gas: 6000000,
-      gasPrice: 550000000000,
       accounts: ['575817d97b76772a2db60286455df47561dafd772395ba4cefc83259e8b12aa2'],
     },
   },

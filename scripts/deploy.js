@@ -18,17 +18,28 @@ const main = async () => {
 let txn;
 // We only have three characters.
 // an NFT w/ the character at index 2 of our array.
+
 txn = await gameContract.mintCharacterNFT(2);
+await txn.wait();
+console.log("Minted NFT #3");
+
+// Transfer to attack the boss
+txn = await gameContract.attackBoss();
+await txn.wait();
+
+// Transfer to attack the boss
+txn = await gameContract.attackBoss();
+await txn.wait();
+
+txn = await gameContract.mintCharacterNFT(0);
 await txn.wait();
 console.log("Minted NFT #1");
 
-// Transfer to attack the boss
-txn = await gameContract.attackBoss();
-await txn.wait();
 
-// Transfer to attack the boss
-txn = await gameContract.attackBoss();
+txn = await gameContract.mintCharacterNFT(1);
 await txn.wait();
+console.log("Minted NFT #2");
+
 
 console.log("Done!!!");
 

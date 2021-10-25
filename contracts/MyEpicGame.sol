@@ -164,10 +164,12 @@ contract MyEpicGame is ERC721 {
 
     // Increment the tokenId for the next person that uses it.
     _tokenIds.increment();
+
+
+    emit CharacterNFTMinted(msg.sender, newItemId, _characterIndex);
+
   }
-
-  emit CharacterNFTMinted(msg.sender, newItemId, _characterIndex);
-
+  
 
   function attackBoss() public  {
     // Get the state of the player's NFT.
@@ -208,10 +210,10 @@ contract MyEpicGame is ERC721 {
   console.log("Boss attacked player. New player hp: %s\n", player.hp);
 
   
+  emit AttackComplete(bigBoss.hp, player.hp);
 
 }
 
-emit AttackComplete(bigBoss.hp, player.hp);
 
 function checkIfUserHasNFT() public view returns (CharacterAttributes memory) {
   // Get the tokenId of the user's character NFT
