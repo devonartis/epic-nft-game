@@ -14,5 +14,8 @@ https://forum.openzeppelin.com/t/cannot-estimate-gas-transaction-may-fail-or-may
 
 Interactive  NFT has been launched and tested ...
 
-https://testnets.opensea.io/assets/0x1b0423e631ce74b3851e52014f7556063cce3c55/3
+
+
+
+Contract deployed to: 0x6fCAfF7a82C45C93d78B32E7a09FCAfAfb2749a8
 
